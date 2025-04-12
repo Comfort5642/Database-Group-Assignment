@@ -156,7 +156,7 @@ INSERT INTO COUNTRY (COUNTRY_ID, COUNTRY_NAME) VALUES
 (5, 'United Kingdom');
 
 /* Foreign Key Reference to Non-Existent Book IDs fix */
-INSERT INTO books (TITLE, ISBN, PUBLISHER_ID, LANGUAGE_ID, PRICE) VALUES
+INSERT INTO books (BOOK_ID, TITLE, ISBN, PUBLISHER_ID, LANGUAGE_ID, PRICE) VALUES
 (22, 'Harry Potter and the Philosopher\'s Stone', '9780747532743', 1, 1, 19.99),
 (23, 'Harry Potter and the Chamber of Secrets', '9780747538486', 1, 1, 19.99),
 (24, 'Harry Potter and the Prisoner of Azkaban', '9780747542155', 1, 1, 19.99),
