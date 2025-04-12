@@ -115,7 +115,7 @@ CREATE TABLE ORDER_HISTORY (
 );
 
 
-
+/* Duplicate BOOKS table creation - commented out.
 CREATE TABLE BOOKS (
     BOOK_ID INT PRIMARY KEY AUTO_INCREMENT,
     TITLE VARCHAR(200) NOT NULL,
@@ -126,6 +126,7 @@ CREATE TABLE BOOKS (
     FOREIGN KEY (PUBLISHER_ID) REFERENCES PUBLISHER(PUBLISHER_ID),
     FOREIGN KEY (LANGUAGE_ID) REFERENCES BOOK_LANGUAGE(LANGUAGE_ID)
 );
+*/
 
 use bookstoredb;
 
@@ -154,15 +155,15 @@ INSERT INTO COUNTRY (COUNTRY_ID, COUNTRY_NAME) VALUES
 (4, 'United States'),
 (5, 'United Kingdom');
 
-
+/* Foreign Key Reference to Non-Existent Book IDs fix */
 INSERT INTO books (TITLE, ISBN, PUBLISHER_ID, LANGUAGE_ID, PRICE) VALUES
-('Harry Potter and the Philosopher\'s Stone', '9780747532743', 1, 1, 19.99),
-('Harry Potter and the Chamber of Secrets', '9780747538486', 1, 1, 19.99),
-('Harry Potter and the Prisoner of Azkaban', '9780747542155', 1, 1, 19.99),
-('Harry Potter and the Goblet of Fire', '9780747546245', 1, 1, 19.99),
-('Harry Potter and the Order of the Phoenix', '9780747551003', 1, 1, 19.99),
-('Harry Potter and the Half-Blood Prince', '9780747581085', 1, 1, 19.99),
-('Harry Potter and the Deathly Hallows', '9780747591053', 1, 1, 19.99);
+(22, 'Harry Potter and the Philosopher\'s Stone', '9780747532743', 1, 1, 19.99),
+(23, 'Harry Potter and the Chamber of Secrets', '9780747538486', 1, 1, 19.99),
+(24, 'Harry Potter and the Prisoner of Azkaban', '9780747542155', 1, 1, 19.99),
+(25, 'Harry Potter and the Goblet of Fire', '9780747546245', 1, 1, 19.99),
+(26, 'Harry Potter and the Order of the Phoenix', '9780747551003', 1, 1, 19.99),
+(27, 'Harry Potter and the Half-Blood Prince', '9780747581085', 1, 1, 19.99),
+(28, 'Harry Potter and the Deathly Hallows', '9780747591053', 1, 1, 19.99);
 
 
 INSERT INTO books (TITLE, ISBN, PUBLISHER_ID, LANGUAGE_ID, PRICE) VALUES
