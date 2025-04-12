@@ -114,6 +114,19 @@ CREATE TABLE ORDER_HISTORY (
     FOREIGN KEY (ORDER_ID) REFERENCES CUST_ORDER(ORDER_ID)
 );
 
+CREATE TABLE ROLES (
+    ROLE_ID INT AUTO_INCREMENT PRIMARY KEY,
+    ROLE_NAME VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE USERS (
+    USER_ID INT AUTO_INCREMENT PRIMARY KEY,
+    USERNAME VARCHAR(50) NOT NULL UNIQUE,
+    PASSWORD VARCHAR(255) NOT NULL,
+    EMAIL VARCHAR(100) NOT NULL UNIQUE,
+    ROLE_ID INT,
+    FOREIGN KEY (ROLE_ID) REFERENCES ROLES(ROLE_ID)
+);
 
 /* Duplicate BOOKS table creation - commented out.
 CREATE TABLE BOOKS (
@@ -129,6 +142,16 @@ CREATE TABLE BOOKS (
 */
 
 use bookstoredb;
+
+INSERT INTO ROLES (ROLE_NAME) VALUES
+('Admin'),
+('Customer'),
+('Staff');
+
+INSERT INTO USERS (USERNAME, PASSWORD, EMAIL, ROLE_ID) VALUES
+('admin_john', 'hashed_password1', 'admin@example.com', 1),  -- Admin
+('jane_doe', 'hashed_password2', 'jane@example.com', 2),     -- Customer
+('staff_mary', 'hashed_password3', 'mary@example.com', 3);   -- Staff
 
 INSERT INTO PUBLISHER (PUBLISHER_ID, PUBLISHER_NAME) VALUES
 (1, 'Bloomsbury'),
@@ -156,14 +179,14 @@ INSERT INTO COUNTRY (COUNTRY_ID, COUNTRY_NAME) VALUES
 (5, 'United Kingdom');
 
 /* Foreign Key Reference to Non-Existent Book IDs fix */
-INSERT INTO books (BOOK_ID, TITLE, ISBN, PUBLISHER_ID, LANGUAGE_ID, PRICE) VALUES
-(22, 'Harry Potter and the Philosopher\'s Stone', '9780747532743', 1, 1, 19.99),
-(23, 'Harry Potter and the Chamber of Secrets', '9780747538486', 1, 1, 19.99),
-(24, 'Harry Potter and the Prisoner of Azkaban', '9780747542155', 1, 1, 19.99),
-(25, 'Harry Potter and the Goblet of Fire', '9780747546245', 1, 1, 19.99),
-(26, 'Harry Potter and the Order of the Phoenix', '9780747551003', 1, 1, 19.99),
-(27, 'Harry Potter and the Half-Blood Prince', '9780747581085', 1, 1, 19.99),
-(28, 'Harry Potter and the Deathly Hallows', '9780747591053', 1, 1, 19.99);
+INSERT INTO books ( TITLE, ISBN, PUBLISHER_ID, LANGUAGE_ID, PRICE) VALUES
+('Harry Potter and the Philosopher\'s Stone', '9780747532743', 1, 1, 19.99),
+('Harry Potter and the Chamber of Secrets', '9780747538486', 1, 1, 19.99),
+('Harry Potter and the Prisoner of Azkaban', '9780747542155', 1, 1, 19.99),
+('Harry Potter and the Goblet of Fire', '9780747546245', 1, 1, 19.99),
+('Harry Potter and the Order of the Phoenix', '9780747551003', 1, 1, 19.99),
+('Harry Potter and the Half-Blood Prince', '9780747581085', 1, 1, 19.99),
+('Harry Potter and the Deathly Hallows', '9780747591053', 1, 1, 19.99);
 
 
 INSERT INTO books (TITLE, ISBN, PUBLISHER_ID, LANGUAGE_ID, PRICE) VALUES
