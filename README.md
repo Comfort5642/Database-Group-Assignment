@@ -51,7 +51,6 @@ We tested various SQL queries to verify that:
 
 ![Database Schema Diagram](database-schemas.png)
 
-> Ensure the file `database-schemas.png` is in the root directory of your project for proper rendering.
 
 ### 🔗 View Full Diagram on Draw.io / Google Drive
 
