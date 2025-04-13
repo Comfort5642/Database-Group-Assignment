@@ -79,6 +79,5 @@ We tested various SQL queries to verify that:
 
 - Ensure MySQL is running and accessible during testing.
 - Use MySQL Workbench or command-line tools for interaction.
-- All queries and sample data are stored in the `sql-scripts` folder (if applicable).
 
 ---
